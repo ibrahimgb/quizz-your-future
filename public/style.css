@@ -12,6 +12,24 @@
   overflow: auto;
 }
 
+section.navbar {
+  background-color: #414141;
+}
+
+nav ul {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  font-size: 2em;
+  color: white;
+  padding:20px 20px;
+}
+
+nav ul #info-ui {
+  display: flex;
+  gap: 20px;
+}
+
 ul {
   list-style: none;
 }
