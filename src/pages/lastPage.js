@@ -3,16 +3,17 @@
 import { USER_INTERFACE_ID, RETURN_HOME_BUTTON_ID } from '../constants.js';
 import { createLastElement } from '../views/lastView.js';
 import { initWelcomePage } from './welcomePage.js';
-import {
-	USER_INTERFACE_ID,
-  } from '../constants.js';
 import { questionAndAnswerList } from '../views/lastView.js';
 
+const userInterface = document.getElementById(USER_INTERFACE_ID);
+
+
 export const initLastPage = () => {
-  const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
 
   const lastElement = createLastElement();
+  const qaList = questionAndAnswerList();
+  userInterface.appendChild(qaList);
   userInterface.appendChild(lastElement);
 
   document
@@ -22,7 +23,4 @@ export const initLastPage = () => {
 
 const restartQuiz = () => {
   initWelcomePage();
-  
-  const qaList = questionAndAnswerList();
-  userInterface.appendChild(qaList);
-};
+  };

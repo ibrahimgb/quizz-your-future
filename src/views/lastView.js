@@ -1,6 +1,7 @@
 'use strict';
 
 import { RETURN_HOME_BUTTON_ID } from '../constants.js';
+import { quizData } from "../data.js";
 
 export const createLastElement = () => {
   const element = document.createElement('div');
@@ -9,7 +10,6 @@ export const createLastElement = () => {
   `;
   return element;
 };
-import { quizData } from "../data.js";
 
 /**
  * Create an Answer element
