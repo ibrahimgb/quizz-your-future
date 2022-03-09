@@ -1,8 +1,7 @@
 .centered {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
@@ -33,3 +32,71 @@ nav ul #info-ui {
 ul {
   list-style: none;
 }
+
+.qalist-wrapper>ul {
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  max-height: 0;
+}
+
+.qalist-wrapper h3 {
+  cursor: pointer;
+}
+
+#answers-list {
+  text-align: center;
+  padding: 0;
+}
+
+.answer-options {
+  background-color: rgba(248, 224, 192, 0.555);
+  color: #4e4e4e;
+  cursor: pointer;
+  border: 1px solid #f4f4f4;
+  border-radius: 3px;
+  margin: 10px auto;
+  padding: .2rem .5rem;
+  text-align: left;
+  height: 2rem;
+  font-size: 1.4rem;
+  width: 100%;
+}
+
+.answer-options-hovering {
+  background-color: #4e4e4e;
+  color: rgba(255, 248, 240);
+}
+
+.answer-option-correct {
+  color: white;
+  background-color: rgb(0, 202, 0);
+}
+
+.answer-option-wrong {
+  color: white;
+  background-color: red;
+}
+
+.qa-question {
+  color: red;
+}
+
+.qa-answer {
+  color: green;
+}
+
+.btn-primary {
+  background-color: rgb(20, 100, 248);
+  padding: .5rem 3rem;
+  font-size: 2rem;
+  color: white;
+  border: none;
+  border-radius: 3px;
+}
+
+.btn-primary:hover {
+  color: rgb(20, 100, 248);
+  background-color: rgb(212, 227, 255);
+}
+
+

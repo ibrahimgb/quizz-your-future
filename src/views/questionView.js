@@ -18,7 +18,7 @@ export const createQuestionElement = (question) => {
     <ul id="${ANSWERS_LIST_ID}">
     </ul>
 
-    <button id="${SHOW_CORRECT_BUTTON_ID}">
+    <button class="btn-primary" id="${SHOW_CORRECT_BUTTON_ID}">
       Correct Answer
     </button>
   `;
