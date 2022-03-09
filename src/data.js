@@ -13,6 +13,7 @@
 
 export const quizData = {
   currentQuestionIndex: 0,
+  questionsToShow: 10,
   // the questions in the quiz
   questions: [
     {
@@ -59,8 +60,6 @@ export const quizData = {
     },
 
 
-    //15 new questions
-    /* 
     {
       text: 'What color jersey does the overall leader of the Tour de France wear?',
       answers: {
@@ -391,8 +390,6 @@ export const quizData = {
         },
       ],
     }, 
-    */
-    
   ],
 };
 
