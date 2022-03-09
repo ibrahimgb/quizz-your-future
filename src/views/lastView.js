@@ -7,7 +7,7 @@ export const createLastElement = () => {
   const element = document.createElement('div');
   element.innerHTML = String.raw`
     <button id="${RETURN_HOME_BUTTON_ID}">return</button>
-  `;
+    `;
   return element;
 };
 
@@ -17,8 +17,8 @@ export const createLastElement = () => {
  */
 
 export const questionAndAnswerList = () => {
+  
     const element = document.createElement('ul');
-    
     
     quizData.questions.forEach(question => {
         const liElement = document.createElement('li');

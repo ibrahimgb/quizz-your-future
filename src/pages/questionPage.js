@@ -63,7 +63,9 @@ const addAnswerEvents = () => {
 }
 
 let count = 0;
+
 const nextQuestion = () => {
+  
   count++;
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
   if (count === quizData.questions.length) {
@@ -78,7 +80,7 @@ const nextQuestion = () => {
 
     
   } else {
-    initQuestionPage()
+    setTimeout(() => { initQuestionPage()}, 1000);
     nextQuestionRegister()
   }
 };
