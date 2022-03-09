@@ -23,18 +23,15 @@ export const questionAndAnswerList = () => {
     quizData.questions.forEach(question => {
         const liElement = document.createElement('li');
         
-        if(question.selected !== null) {
-            liElement.innerHTML = String.raw`
-        <h3>${question.text}</h3>
-    
+        liElement.innerHTML = String.raw`
+        <h3>Q: ${question.text}</h3>
         <ul>
-            <li>Your selection: ${question.selected}: ${question.answers[question.selected]}</li>
-            <li>Correct answer: ${question.correct}: ${question.answers[question.correct]}</li>
+            <li>A: ${question.answers[question.correct]}</li>
         </ul>
+        <br>
         `;
         element.appendChild(liElement);
-        }
-        
+            
     })
     return element;
 }

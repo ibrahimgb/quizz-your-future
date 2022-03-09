@@ -2,7 +2,7 @@
 
 import {
   ANSWERS_LIST_ID,
-  NEXT_QUESTION_BUTTON_ID,
+  // NEXT_QUESTION_BUTTON_ID,
   USER_INTERFACE_ID,
   SHOW_CORRECT_BUTTON_ID,
 } from '../constants.js';
