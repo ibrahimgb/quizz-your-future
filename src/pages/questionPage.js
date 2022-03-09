@@ -61,7 +61,6 @@ const addAnswerEvents = () => {
       e.target.classList.remove('answer-options-hovering');
       const currentQuestion = quizData.questions[quizData.currentQuestionIndex]; 
       currentQuestion.selected = e.target.innerText[0];
-// console.log(e.target.innerText[0], currentQuestion.selected);
 
       if (currentQuestion.selected === currentQuestion.correct) {
          e.target.classList.add('answer-option-correct');
@@ -71,7 +70,6 @@ const addAnswerEvents = () => {
       } else {
        e.target.classList.add('answer-option-wrong');
         score.total -= 1;
-        nextQuestion();
       }
     } );
   })
@@ -92,7 +90,7 @@ const nextQuestion = () => {
   
   count++;
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
-  if (count === quizData.questions.length) {
+  if (count === quizData.questionsToShow) {
     delayNext(initLastPage);
     quizData.currentQuestionIndex = 0, 
     count = 0;

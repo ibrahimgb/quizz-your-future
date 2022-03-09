@@ -16,7 +16,7 @@ let timerCounter;
 export const initInfoUI = () => {
 	//Make the initial content with forEach loop
 	//Question upperlimit according to data
-	const initContent = [0, `1/${quizData.questions.length}`, '00:00'];
+	const initContent = [0, `1/${quizData.questionsToShow}`, '00:00'];
 
 	initContent.forEach((item, idx) => {
 		//Child 0, 1, 2 always have to be the same for this to work
