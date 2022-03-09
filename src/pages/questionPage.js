@@ -60,6 +60,7 @@ const addAnswerEvents = () => {
       e.target.classList.remove('answer-options-hovering');
       const currentQuestion = quizData.questions[quizData.currentQuestionIndex]; 
       currentQuestion.selected = e.target.innerText[0];
+// console.log(e.target.innerText[0], currentQuestion.selected);
 
       if (currentQuestion.selected === currentQuestion.correct) {
         e.target.classList.add('answer-option-correct');
@@ -91,10 +92,6 @@ const nextQuestion = () => {
     quizData.currentQuestionIndex = 0, 
     count = 0;
     clearIntervals();
-    //Clear selection on reset.
-    quizData.questions.map(q => {
-      q.selected = null;
-    });
 
   } else {
     //Function only comes here when correct answer is selected.

@@ -19,20 +19,19 @@ export const createLastElement = () => {
 export const questionAndAnswerList = () => {
   
     const element = document.createElement('ul');
-    
     quizData.questions.forEach(question => {
         const liElement = document.createElement('li');
         
         if(question.selected !== null) {
            liElement.innerHTML = String.raw`
-        <h3>Q: ${question.text}</h3>
+        <h3 class="qa-question">Q: ${question.text}</h3>
         <ul>
-            <li>A: ${question.answers[question.correct]}</li>
+            <li class="qa-answer">A: ${question.answers[question.correct]}</li>
         </ul>
         <br>
         `;
         element.appendChild(liElement);
-            
+      }     
     })
     return element;
 }
