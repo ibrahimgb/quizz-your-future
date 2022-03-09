@@ -5,7 +5,7 @@ const infoUI = document.getElementById(INFO_UI_ID);
 const timerDisplay = infoUI.querySelector(`#${TIMER_DISPLAY_ID}`);
 const questionDisplay = infoUI.querySelector(`#${CURRENT_QUESTION_DISPLAY_ID}`);
 const scoreDisplay = infoUI.querySelector(`#${HIGH_SCORE_DISPLAY_ID}`);
-
+export let navFinalScore = 0;
 //Counter that take our timer's setInterval() method.
 let timerCounter;
 
@@ -61,7 +61,9 @@ export const nextQuestionRegister = () => {
 	let scoreNumber = parseInt(scoreDisplay.textContent, 10);
 
 	scoreNumber += amount;
+	
 	scoreDisplay.textContent = scoreNumber;
+	navFinalScore = scoreNumber;
 }
 
 /**

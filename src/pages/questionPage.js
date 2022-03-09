@@ -10,7 +10,8 @@ import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
 import { initLastPage } from './lastPage.js';
-import { clearIntervals, nextQuestionRegister } from '../components/navbar.js';
+import { addToCurrentScore, clearIntervals, nextQuestionRegister } from '../components/navbar.js';
+import { score } from '../components/scoreKeeper.js';
 
 export const initQuestionPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
@@ -54,10 +55,14 @@ const addAnswerEvents = () => {
       currentQuestion.selected = e.target.innerText[0];
       if (currentQuestion.selected === currentQuestion.correct) {
         e.target.style.color = 'green';
+        addToCurrentScore(score.total)
+        score.total = 3;
         nextQuestion();
       } else {
         e.target.style.color = 'red';
+        score.total -= 1;
       }
+
     } );
   })
 }

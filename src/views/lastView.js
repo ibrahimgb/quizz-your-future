@@ -1,13 +1,23 @@
 'use strict';
 
+import { navFinalScore } from '../components/navbar.js';
 import { RETURN_HOME_BUTTON_ID } from '../constants.js';
 import { quizData } from "../data.js";
+
 
 export const createLastElement = () => {
   const element = document.createElement('div');
   element.innerHTML = String.raw`
     <button id="${RETURN_HOME_BUTTON_ID}">return</button>
     `;
+  return element;
+};
+
+export const createScoreElement = () => {
+  const element = document.createElement('div');
+  element.innerHTML = String.raw`
+    <h4>Your Score is: ${navFinalScore}</h4>
+  `;
   return element;
 };
 
