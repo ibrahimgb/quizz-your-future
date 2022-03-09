@@ -12,6 +12,9 @@ import { quizData } from '../data.js';
 import { initLastPage } from './lastPage.js';
 import { clearIntervals, nextQuestionRegister } from '../components/navbar.js';
 
+//Check if correct answer is selected
+let isCorrectAnswerSelected = false;
+
 export const initQuestionPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
@@ -50,8 +53,12 @@ const addAnswerEvents = () => {
   //Go through each answer and add events
   answerList.forEach(answer => {
     answer.addEventListener('click', (e) => {
+      //If correct answer selected prevent event from firing.
+      if(isCorrectAnswerSelected) return;
+
       const currentQuestion = quizData.questions[quizData.currentQuestionIndex]; 
       currentQuestion.selected = e.target.innerText[0];
+
       if (currentQuestion.selected === currentQuestion.correct) {
         e.target.style.color = 'green';
         nextQuestion();
@@ -80,8 +87,12 @@ const nextQuestion = () => {
 
     
   } else {
-    //Testing
-    setTimeout(() => { initQuestionPage()}, 1000);
+    //Function only comes here when correct answer is selected.
+    isCorrectAnswerSelected = true;
+    setTimeout(() => { 
+      initQuestionPage();
+      isCorrectAnswerSelected = false;
+    }, 1000);
     nextQuestionRegister()
   }
 };
