@@ -2,7 +2,7 @@
 
 import {
   ANSWERS_LIST_ID,
-  NEXT_QUESTION_BUTTON_ID,
+  // NEXT_QUESTION_BUTTON_ID,
   USER_INTERFACE_ID,
   SHOW_CORRECT_BUTTON_ID,
 } from '../constants.js';
@@ -10,7 +10,11 @@ import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
 import { initLastPage } from './lastPage.js';
-import { clearIntervals, nextQuestionRegister } from '../components/navbar.js';
+import { addToCurrentScore, clearIntervals, nextQuestionRegister } from '../components/navbar.js';
+import { score } from '../components/scoreKeeper.js';
+
+//Check if correct answer is selected
+let isCorrectAnswerSelected = false;
 
 export const initQuestionPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
@@ -41,7 +45,7 @@ const showCorrectAnswer = () => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
   // const option = new RegExp('^' + currentQuestion.correct);
   
-  answerList.forEach(answer => {if(answer.innerText[0] === currentQuestion.correct) answer.style.color = 'green'});
+  answerList.forEach(answer => {if(answer.innerText[0] === currentQuestion.correct) answer.classList.add('answer-option-correct')});
 }
 
 const addAnswerEvents = () => {
@@ -49,36 +53,54 @@ const addAnswerEvents = () => {
 
   //Go through each answer and add events
   answerList.forEach(answer => {
+    answer.addEventListener('mouseover', (e) => e.target.classList.add('answer-options-hovering'));
+    answer.addEventListener('mouseout', (e) => e.target.classList.remove('answer-options-hovering'));
     answer.addEventListener('click', (e) => {
+      //If correct answer selected prevent event from firing.
+      if(isCorrectAnswerSelected) return;
+      e.target.classList.remove('answer-options-hovering');
       const currentQuestion = quizData.questions[quizData.currentQuestionIndex]; 
       currentQuestion.selected = e.target.innerText[0];
+// console.log(e.target.innerText[0], currentQuestion.selected);
+
       if (currentQuestion.selected === currentQuestion.correct) {
-        e.target.style.color = 'green';
+         e.target.classList.add('answer-option-correct');
+        addToCurrentScore(score.total)
+        score.total = 3;
         nextQuestion();
       } else {
-        e.target.style.color = 'red';
+       e.target.classList.add('answer-option-wrong');
+        score.total -= 1;
+        nextQuestion();
       }
     } );
   })
 }
 
 let count = 0;
+
+//Will call next function on callback
+const delayNext = (callback) => {
+  isCorrectAnswerSelected = true;
+  setTimeout(() => { 
+    callback();
+    isCorrectAnswerSelected = false;
+  }, 1000);
+}
+
 const nextQuestion = () => {
+  
   count++;
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
   if (count === quizData.questions.length) {
-    initLastPage(); 
+    delayNext(initLastPage);
     quizData.currentQuestionIndex = 0, 
     count = 0;
     clearIntervals();
-    //Clear selection on reset.
-    quizData.questions.map(q => {
-      q.selected = null;
-    });
 
-    
   } else {
-    initQuestionPage()
+    //Function only comes here when correct answer is selected.
+    delayNext(initQuestionPage);
     nextQuestionRegister()
   }
 };
