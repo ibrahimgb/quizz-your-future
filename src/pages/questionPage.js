@@ -73,12 +73,21 @@ const addAnswerEvents = () => {
 
 let count = 0;
 
+//Will call next function on callback
+const delayNext = (callback) => {
+  isCorrectAnswerSelected = true;
+  setTimeout(() => { 
+    callback();
+    isCorrectAnswerSelected = false;
+  }, 1000);
+}
+
 const nextQuestion = () => {
   
   count++;
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
   if (count === quizData.questions.length) {
-    setTimeout(() => { initLastPage()}, 1000);; 
+    delayNext(initLastPage);
     quizData.currentQuestionIndex = 0, 
     count = 0;
     clearIntervals();
@@ -89,11 +98,7 @@ const nextQuestion = () => {
 
   } else {
     //Function only comes here when correct answer is selected.
-    isCorrectAnswerSelected = true;
-    setTimeout(() => { 
-      initQuestionPage();
-      isCorrectAnswerSelected = false;
-    }, 1000);
+    delayNext(initQuestionPage);
     nextQuestionRegister()
   }
 };
