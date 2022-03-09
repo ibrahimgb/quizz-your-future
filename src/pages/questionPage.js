@@ -41,7 +41,7 @@ const showCorrectAnswer = () => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
   // const option = new RegExp('^' + currentQuestion.correct);
   
-  answerList.forEach(answer => {if(answer.innerText[0] === currentQuestion.correct) answer.style.color = 'green'});
+  answerList.forEach(answer => {if(answer.innerText[0] === currentQuestion.correct) answer.classList.add('answer-option-correct')});
 }
 
 const addAnswerEvents = () => {
@@ -49,7 +49,10 @@ const addAnswerEvents = () => {
 
   //Go through each answer and add events
   answerList.forEach(answer => {
+    answer.addEventListener('mouseover', (e) => e.target.classList.add('answer-options-hovering'));
+    answer.addEventListener('mouseout', (e) => e.target.classList.remove('answer-options-hovering'));
     answer.addEventListener('click', (e) => {
+      e.target.classList.remove('answer-options-hovering');
       const currentQuestion = quizData.questions[quizData.currentQuestionIndex]; 
       currentQuestion.selected = e.target.innerText[0];
       if (currentQuestion.selected === currentQuestion.correct) {
