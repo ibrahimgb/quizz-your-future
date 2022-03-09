@@ -396,4 +396,18 @@ export const quizData = {
   ],
 };
 
+
+//This method will shuffle our quizData questions
+export const shuffleQuestions = () => {
+  //Find random index for temp array and pop the found question.
+  let questionsTemp = [...quizData.questions];
+
+  quizData.questions.forEach((q, idx) => {
+    let randIndex = Math.floor(Math.random() * questionsTemp.length);
     
+    quizData.questions[idx] = questionsTemp[randIndex];
+    questionsTemp.splice(randIndex, 1);
+  });
+
+}
+
