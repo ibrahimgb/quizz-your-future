@@ -10,7 +10,8 @@ import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
 import { initLastPage } from './lastPage.js';
-import { clearIntervals, nextQuestionRegister } from '../components/navbar.js';
+import { addToCurrentScore, clearIntervals, nextQuestionRegister } from '../components/navbar.js';
+import { score } from '../components/scoreKeeper.js';
 
 //Check if correct answer is selected
 let isCorrectAnswerSelected = false;
@@ -63,10 +64,14 @@ const addAnswerEvents = () => {
 // console.log(e.target.innerText[0], currentQuestion.selected);
 
       if (currentQuestion.selected === currentQuestion.correct) {
-        e.target.classList.add('answer-option-correct');
+         e.target.classList.add('answer-option-correct');
+        addToCurrentScore(score.total)
+        score.total = 3;
         nextQuestion();
       } else {
-        e.target.classList.add('answer-option-wrong');
+       e.target.classList.add('answer-option-wrong');
+        score.total -= 1;
+        nextQuestion();
       }
     } );
   })
