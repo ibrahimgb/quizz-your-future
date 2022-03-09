@@ -53,10 +53,10 @@ const addAnswerEvents = () => {
       const currentQuestion = quizData.questions[quizData.currentQuestionIndex]; 
       currentQuestion.selected = e.target.innerText[0];
       if (currentQuestion.selected === currentQuestion.correct) {
-        e.target.style.color = 'green';
+        e.target.classList.add('answer-option-correct');
         nextQuestion();
       } else {
-        e.target.style.color = 'red';
+        e.target.classList.add('answer-option-wrong');
       }
     } );
   })
