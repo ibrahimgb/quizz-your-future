@@ -13,8 +13,9 @@ export const initLastPage = () => {
 
   const lastElement = createLastElement();
   const qaList = questionAndAnswerList();
-  userInterface.appendChild(qaList);
   userInterface.appendChild(lastElement);
+  userInterface.appendChild(qaList);
+  
 
   document
     .getElementById(RETURN_HOME_BUTTON_ID)
