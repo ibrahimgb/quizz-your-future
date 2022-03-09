@@ -21,9 +21,6 @@ export const createQuestionElement = (question) => {
     <button id="${SHOW_CORRECT_BUTTON_ID}">
       Correct Answer
     </button>
-    <button id="${NEXT_QUESTION_BUTTON_ID}">
-      Next question
-    </button>
   `;
 
   return element;
