@@ -80,6 +80,7 @@ const nextQuestion = () => {
 
     
   } else {
+    //Testing
     setTimeout(() => { initQuestionPage()}, 1000);
     nextQuestionRegister()
   }
