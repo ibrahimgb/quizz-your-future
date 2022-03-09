@@ -69,7 +69,7 @@ const nextQuestion = () => {
   count++;
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
   if (count === quizData.questions.length) {
-    initLastPage(); 
+    setTimeout(() => { initLastPage()}, 1000);; 
     quizData.currentQuestionIndex = 0, 
     count = 0;
     clearIntervals();
@@ -78,7 +78,6 @@ const nextQuestion = () => {
       q.selected = null;
     });
 
-    
   } else {
     //Testing
     setTimeout(() => { initQuestionPage()}, 1000);
