@@ -12,13 +12,27 @@ export const createLastElement = () => {
 };
 
 /**
+ * Create an accordion element
+ * @returns {Element}
+ */
+export const createAccordionToggle = () => {
+  const parent = document.createElement('div');
+  const element = document.createElement('h3');
+
+  parent.classList.add("qalist-wrapper");
+  element.textContent = `Show a summary of question:`;
+  parent.appendChild(element);
+  return parent;
+}
+
+/**
  * Create an Answer element
  * @returns {Element}
  */
-
 export const questionAndAnswerList = () => {
   
     const element = document.createElement('ul');
+
     quizData.questions.forEach(question => {
         const liElement = document.createElement('li');
         
@@ -30,7 +44,7 @@ export const questionAndAnswerList = () => {
         </ul>
         <br>
         `;
-        element.appendChild(liElement);
+        element.appendChild(liElement);           
       }     
     })
     return element;
