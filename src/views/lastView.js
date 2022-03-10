@@ -50,7 +50,7 @@ export const questionAndAnswerList = () => {
         if(question.selected !== null) {
            liElement.innerHTML = String.raw`
         <h3 class="qa-question">Q: ${question.text}</h3>
-        <ul>
+        <ul class="q-list-ending">
             <li class="qa-answer">A: ${question.answers[question.correct]}</li>
         </ul>
         <br>
@@ -60,3 +60,16 @@ export const questionAndAnswerList = () => {
     })
     return element;
 }
+
+export const createFooter = () => {
+  const element = document.createElement('div');
+  element.innerHTML = String.raw`
+    <footer>
+      <p>
+      This project was actualized by the 'Quiz Your Future' team.<br>
+      <a target="_blank" href="https://github.com/cometbroom">Ali</a>, <a target="_blank" href="https://github.com/slymny">Suleyman</a> and <a target="_blank" href="https://github.com/EdwardAbboud">Edward</a>.
+      </p>
+    </footer>
+  `;
+  return element;
+};

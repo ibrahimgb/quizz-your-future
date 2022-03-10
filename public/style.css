@@ -4,6 +4,7 @@
   align-items: center;
   text-align: center;
   width: 50%;
+  height: auto;
   margin: auto;
 }
 
@@ -15,7 +16,7 @@
 
 section.navbar {
   background-color: #414141;
-  width: 90%;
+  width: 100%;
   margin: auto;
 }
 
@@ -23,20 +24,33 @@ nav ul {
   display: flex;
   gap: 20px;
   justify-content: space-between;
+  align-items: center;
   font-size: 2em;
   color: white;
-  padding:10px 10px;
-  width: 90%;
+  padding: 10px 10px ;
+  width: 98%;
   margin: auto;
+  margin-right: 10px;
+  max-height: 40px;
 }
+
 
 nav ul #info-ui {
   display: flex;
   gap: 20px;
+
 }
 
 ul {
   list-style: none;
+}
+
+nav ul li{
+  max-height: 40px;
+}
+
+#logo img {
+  height: 40px;
 }
 
 .qalist-wrapper>ul {
@@ -55,21 +69,22 @@ ul {
 }
 
 .answer-options {
-  background-color: rgba(248, 224, 192, 0.555);
+  background-color: #E8E8E8;
   color: #4e4e4e;
   cursor: pointer;
   border: 1px solid #f4f4f4;
   border-radius: 3px;
   margin: 10px auto;
-  padding: .2rem .5rem;
+  padding: 1.4rem .5rem .2rem;
   text-align: left;
-  height: 2rem;
+  height: 3rem;
   font-size: 1.4rem;
 }
 
 .answer-options-hovering {
-  background-color: #4e4e4e;
-  color: rgba(255, 248, 240);
+  background-color: white;
+  color: #414141;
+  border: 1px solid #41414121;
 }
 
 .answer-option-correct {
@@ -78,8 +93,13 @@ ul {
 }
 
 .answer-option-wrong {
-  color: white;
-  background-color: red;
+  color: #ff0000;
+  background-color: white;
+  border: 1px solid white;
+  text-decoration: line-through;
+}
+.q-list-ending {
+padding: 0;
 }
 
 .qa-question {
@@ -91,7 +111,7 @@ ul {
 }
 
 .btn-primary {
-  background-color: rgb(20, 100, 248);
+  background-color: #414141;
   padding: .5rem 3rem;
   font-size: 2rem;
   color: white;
@@ -100,8 +120,29 @@ ul {
 }
 
 .btn-primary:hover {
-  color: rgb(20, 100, 248);
-  background-color: rgb(212, 227, 255);
+  color: white;
+  background-color: #414141;
+  cursor: pointer;
+  text-shadow: 0px 0px 3px #ffffff;
 }
 
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 99%;
+  margin: 0 auto;
+  height: 60px;
+  background:#414141;
+  color: white;
+  margin: 10px;
+}
 
+footer a {
+  color: rgb(122, 160, 255);
+}
+
+footer a:hover,
+footer a:focus {
+  font-weight: bold;
+}
