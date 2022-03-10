@@ -12,6 +12,7 @@ import { quizData } from '../data.js';
 import { initLastPage } from './lastPage.js';
 import { addToCurrentScore, clearIntervals, nextQuestionRegister } from '../components/navbar.js';
 import { score } from '../components/scoreKeeper.js';
+import { playCorrectQ } from '../components/soundPlayer.js';
 
 //Check if correct answer is selected
 let isCorrectAnswerSelected = false;
@@ -53,6 +54,7 @@ const showCorrectAnswer = () => {
   answerList.forEach(answer => {if(answer.innerText[0] === currentQuestion.correct) answer.classList.add('answer-option-correct')});
 }
 
+
 const answerElementHandler = (e) => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
   //If correct answer selected prevent event from firing.
@@ -67,9 +69,10 @@ const answerElementHandler = (e) => {
    e.target.classList.add('answer-option-wrong');
     score.total -= 1;
   }
+
 }
 
-let count = 0;
+
 
 //Will call next function on callback
 const delayNext = (callback) => {
@@ -81,15 +84,11 @@ const delayNext = (callback) => {
 }
 
 const nextQuestion = () => {
-  
-  count++;
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
-  if (count === quizData.questionsToShow) {
-    delayNext(initLastPage);
-    quizData.currentQuestionIndex = 0, 
-    count = 0;
-    clearIntervals();
 
+  if (quizData.currentQuestionIndex >= quizData.questionsToShow) {
+
+    delayNext(initLastPage);
   } else {
     //Function only comes here when correct answer is selected.
     delayNext(initQuestionPage);
