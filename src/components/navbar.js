@@ -36,6 +36,15 @@ export const initInfoUI = () => {
 	}, 1000);
 }
 
+export const getTimerFromNavbar = () => {
+	const [mins, seconds] = timerDisplay.textContent.split(':').map(x => {
+		return parseInt(x, 10);
+	});
+	return (
+		(mins * 60) + seconds
+	);
+}
+
 /**
  * Register the current question's index on the UI display
  * @returns {void}
