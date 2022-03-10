@@ -5,10 +5,16 @@ import { createLastElement, createScoreElement, createAccordionToggle } from '..
 import { initWelcomePage } from './welcomePage.js';
 import { questionAndAnswerList } from '../views/lastView.js';
 import { quizData } from '../data.js';
+import { clearIntervals, initInfoUI, lastPageNav, setDataNavbar } from '../components/navbar.js';
 
 const userInterface = document.getElementById(USER_INTERFACE_ID);
 
 export const initLastPage = () => {
+
+  clearIntervals();
+  quizData.currentQuestionIndex = 0;
+  lastPageNav();
+
   userInterface.innerHTML = '';
 
   const scoreElement = createScoreElement();
@@ -42,5 +48,11 @@ const restartQuiz = () => {
     quizData.questions.map(q => {
       q.selected = null;
     });
+  setDataNavbar({
+    mins: 0,
+    secs: 0,
+    qCurrent: 1,
+    score: 0
+  });
   initWelcomePage();
   };
