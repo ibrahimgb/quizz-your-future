@@ -1,11 +1,10 @@
 'use strict';
 
 import { USER_INTERFACE_ID, RETURN_HOME_BUTTON_ID } from '../constants.js';
-import { createLastElement, createScoreElement, createAccordionToggle } from '../views/lastView.js';
+import { createLastElement, createScoreElement, createAccordionToggle, questionAndAnswerList } from '../views/lastView.js';
 import { initWelcomePage } from './welcomePage.js';
-import { questionAndAnswerList } from '../views/lastView.js';
 import { quizData } from '../data.js';
-import { clearIntervals, initInfoUI, lastPageNav, setDataNavbar } from '../components/navbar.js';
+import { clearIntervals, lastPageNav, setDataNavbar } from '../components/navbar.js';
 
 const userInterface = document.getElementById(USER_INTERFACE_ID);
 

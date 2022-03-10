@@ -1,4 +1,4 @@
-import { getTimerFromNavbar } from "./navbar.js";
+import { getTimeFromNavbar } from "./navbar.js";
 import { quizData } from "../data.js";
 
 export const score = {
@@ -9,7 +9,7 @@ export const score = {
 
 export const scoreMultiplier = (endScore) => {
   let timeGiven = (quizData.questionsToShow * 30);
-  let multiplierCalculator = Math.floor((timeGiven - getTimerFromNavbar()) / 20);
+  let multiplierCalculator = Math.floor((timeGiven - getTimeFromNavbar()) / 20);
   let finalScore = endScore * multiplierCalculator;
   if (finalScore<0) {
     return 0;

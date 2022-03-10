@@ -17,7 +17,7 @@ export const createLastElement = () => {
 export const createScoreElement = () => {
   const element = document.createElement('div');
   element.innerHTML = String.raw`
-    <h4>Your Score is: ${scoreMultiplier(navFinalScore)}</h4>
+    <h4>Your Total Score is: ${scoreMultiplier(navFinalScore)}</h4>
   `;
   return element;
 };

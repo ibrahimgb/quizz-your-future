@@ -110,7 +110,7 @@ export const clearIntervals = () => {
 }
 
 
-export const getTimerFromNavbar = () => {
+export const getTimeFromNavbar = () => {
 	return (
 		(navData.mins * 60) + navData.secs
 	);

@@ -10,7 +10,7 @@ import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
 import { initLastPage } from './lastPage.js';
-import { addToCurrentScore, clearIntervals, nextQuestionRegister } from '../components/navbar.js';
+import { addToCurrentScore, nextQuestionRegister } from '../components/navbar.js';
 import { score } from '../components/scoreKeeper.js';
 import { playCorrectQ } from '../components/soundPlayer.js';
 
