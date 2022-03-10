@@ -29,6 +29,9 @@ export const initQuestionPage = () => {
 
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
     const answerElement = createAnswerElement(key, answerText);
+    if (currentQuestion.selected === key) {
+      console.log(key);
+    }
     answersListElement.appendChild(answerElement);
   }
 
@@ -63,6 +66,8 @@ const addAnswerEvents = () => {
       currentQuestion.selected = e.target.innerText[0];
 
       if (currentQuestion.selected === currentQuestion.correct) {
+        localStorage.setItem('currentIndex', quizData.currentQuestionIndex+1);
+        
          e.target.classList.add('answer-option-correct');
         addToCurrentScore(score.total)
         score.total = 3;
@@ -90,7 +95,7 @@ const nextQuestion = () => {
   
   count++;
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
-  if (count === quizData.questionsToShow) {
+  if (count <= quizData.questionsToShow) {
     delayNext(initLastPage);
     quizData.currentQuestionIndex = 0, 
     count = 0;
