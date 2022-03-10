@@ -16,8 +16,6 @@ export const SHOW_CORRECT_BUTTON_ID = 'show-correct';
 export const NAVBAR_QUERY = 'section.navbar';
 export const INFO_UI_ID = 'info-ui';
 export const HIGH_SCORE_DISPLAY_ID = 'high-score';
-export const CURRENT_QUESTION_DISPLAY_ID = "current-question";
+export const CURRENT_QUESTION_DISPLAY_ID = 'current-question';
 export const TIMER_DISPLAY_ID = 'timer-ui';
 export const SCORE_KEEPER_ID = 'score-keeper';
-
-
