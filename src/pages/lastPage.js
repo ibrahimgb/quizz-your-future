@@ -22,6 +22,7 @@ export const initLastPage = () => {
   const accordionToggleDiv = createAccordionToggle();
   const qaList = questionAndAnswerList();
   
+  
   userInterface.appendChild(scoreElement);
   accordionToggleDiv.appendChild(qaList);
   userInterface.appendChild(accordionToggleDiv);
