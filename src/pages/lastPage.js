@@ -37,6 +37,7 @@ const accordionToggled = (qaList) => {
 }
 
 const restartQuiz = () => {
+  localStorage.clear();
    //Clear selection on reset.
     quizData.questions.map(q => {
       q.selected = null;

@@ -13,54 +13,9 @@
 
 export const quizData = {
   currentQuestionIndex: 0,
-  questionsToShow: 10,
+  questionsToShow: 2,
   // the questions in the quiz
   questions: [
-    {
-      text: 'What are the different ways to declare a JS variable?',
-      answers: {
-        a: 'constant, let, variable',
-        b: 'var, const, let, function',
-        c: 'var, let, const',
-        d: 'let, function, const',
-      },
-      correct: 'c',
-      selected: null,
-      links: [
-        {
-          text: 'javascript.info',
-          href: 'https://javascript.info/variables',
-        },
-        {
-          text: 'Tyler McGinnis',
-          href: 'https://ui.dev/var-let-const/',
-        },
-      ],
-    },
-    {
-      text: 'What does `typeof` do?',
-      answers: {
-        a: 'changes the type of a primitive value',
-        b: 'returns a string describing the type of a value',
-        c: 'determines if a value is primitive',
-        d: 'can tell the difference between arrays and objects',
-      },
-      correct: 'b',
-      selected: null,
-      links: [
-        {
-          text: 'javascript.info',
-          href: 'https://javascript.info/types#type-typeof',
-        },
-        {
-          text: 'MDN',
-          href:
-            'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof',
-        },
-      ],
-    },
-
-
     {
       text: 'What color jersey does the overall leader of the Tour de France wear?',
       answers: {
@@ -71,17 +26,6 @@ export const quizData = {
       },
       correct: 'a',
       selected: null,
-      links: [
-        {
-          text: '',
-          href: '',
-        },
-        {
-          text: '',
-          href:
-            '',
-        },
-      ],
     },
     {
       text: 'What spirit is made from fermented molasses?',
@@ -93,17 +37,6 @@ export const quizData = {
       },
       correct: 'b',
       selected: null,
-      links: [
-        {
-          text: '',
-          href: '',
-        },
-        {
-          text: '',
-          href:
-            '',
-        },
-      ],
     },
     {
       text: 'How old are the four main characters in the TV cartoon "South Park"?',
@@ -115,17 +48,6 @@ export const quizData = {
       },
       correct: 'd',
       selected: null,
-      links: [
-        {
-          text: '',
-          href: '',
-        },
-        {
-          text: '',
-          href:
-            '',
-        },
-      ],
     },
     {
       text: 'As of 2008, which is the largest-selling brand name drug in the world?',
@@ -137,17 +59,6 @@ export const quizData = {
       },
       correct: 'a',
       selected: null,
-      links: [
-        {
-          text: '',
-          href: '',
-        },
-        {
-          text: '',
-          href:
-            '',
-        },
-      ],
     },
     {
       text: 'Which European country is also known as the Hellenic Republic?',
@@ -159,17 +70,6 @@ export const quizData = {
       },
       correct: 'b',
       selected: null,
-      links: [
-        {
-          text: '',
-          href: '',
-        },
-        {
-          text: '',
-          href:
-            '',
-        },
-      ],
     },
     {
       text: "Which 'Harry Potter' actress won an Oscar for the 1969 film 'The Prime Of Miss Jean Brodie'?",
@@ -181,17 +81,6 @@ export const quizData = {
       },
       correct: 'c',
       selected: null,
-      links: [
-        {
-          text: '',
-          href: '',
-        },
-        {
-          text: '',
-          href:
-            '',
-        },
-      ],
     },
     {
       text: "1990s Patricia Cornwell novel in the Dr Kay Scarpetta series: \"From Potter's WHAT\"?",
@@ -203,17 +92,6 @@ export const quizData = {
       },
       correct: 'a',
       selected: null,
-      links: [
-        {
-          text: '',
-          href: '',
-        },
-        {
-          text: '',
-          href:
-            '',
-        },
-      ],
     },
     {
       text: "'Check ignition and may God's love be with you' is a line from which song?",
@@ -225,17 +103,6 @@ export const quizData = {
       },
       correct: 'c',
       selected: null,
-      links: [
-        {
-          text: '',
-          href: '',
-        },
-        {
-          text: '',
-          href:
-            '',
-        },
-      ],
     },
     {
       text: '"Lara Croft Tomb Raider: The Cradle Of Life" is banned in which of these countries?',
@@ -247,17 +114,6 @@ export const quizData = {
       },
       correct: 'b',
       selected: null,
-      links: [
-        {
-          text: '',
-          href: '',
-        },
-        {
-          text: '',
-          href:
-            '',
-        },
-      ],
     },
     {
       text: "Which silver screen actress was nicknamed 'The girl with the million dollar legs'?",
@@ -269,17 +125,6 @@ export const quizData = {
       },
       correct: 'c',
       selected: null,
-      links: [
-        {
-          text: '',
-          href: '',
-        },
-        {
-          text: '',
-          href:
-            '',
-        },
-      ],
     },
     {
       text: 'Matt Robinson married WHICH British celebrity in 2009?',
@@ -291,17 +136,6 @@ export const quizData = {
       },
       correct: 'c',
       selected: null,
-      links: [
-        {
-          text: '',
-          href: '',
-        },
-        {
-          text: '',
-          href:
-            '',
-        },
-      ],
     },
     {
       text: 'Pharology is the study of WHAT?',
@@ -313,17 +147,6 @@ export const quizData = {
       },
       correct: 'c',
       selected: null,
-      links: [
-        {
-          text: '',
-          href: '',
-        },
-        {
-          text: '',
-          href:
-            '',
-        },
-      ],
     },
     {
       text: 'The capital city of which of these countries comes LAST alphabetically?',
@@ -335,17 +158,6 @@ export const quizData = {
       },
       correct: 'b',
       selected: null,
-      links: [
-        {
-          text: '',
-          href: '',
-        },
-        {
-          text: '',
-          href:
-            '',
-        },
-      ],
     },
     {
       text: "Which word can be a 'ship's tilt' or an 'inventory'?",
@@ -357,17 +169,6 @@ export const quizData = {
       },
       correct: 'a',
       selected: null,
-      links: [
-        {
-          text: '',
-          href: '',
-        },
-        {
-          text: '',
-          href:
-            '',
-        },
-      ],
     }, 
     {
       text: "'Peloponnese' relates to which country's culture?",
@@ -379,17 +180,6 @@ export const quizData = {
       },
       correct: 'b',
       selected: null,
-      links: [
-        {
-          text: '',
-          href: '',
-        },
-        {
-          text: '',
-          href:
-            '',
-        },
-      ],
     }, 
   ],
 };
