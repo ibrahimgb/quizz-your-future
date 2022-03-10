@@ -12,6 +12,7 @@ import { quizData } from '../data.js';
 import { initLastPage } from './lastPage.js';
 import { addToCurrentScore, clearIntervals, nextQuestionRegister } from '../components/navbar.js';
 import { score } from '../components/scoreKeeper.js';
+import { playCorrectQ } from '../components/soundPlayer.js';
 
 //Check if correct answer is selected
 let isCorrectAnswerSelected = false;
@@ -66,6 +67,7 @@ const addAnswerEvents = () => {
       currentQuestion.selected = e.target.innerText[0];
 
       if (currentQuestion.selected === currentQuestion.correct) {
+        playCorrectQ();
         localStorage.setItem('currentIndex', quizData.currentQuestionIndex+1);
         
          e.target.classList.add('answer-option-correct');
