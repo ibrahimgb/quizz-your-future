@@ -65,12 +65,11 @@ const addAnswerEvents = () => {
       e.target.classList.remove('answer-options-hovering');
       const currentQuestion = quizData.questions[quizData.currentQuestionIndex]; 
       currentQuestion.selected = e.target.innerText[0];
+      
 
       if (currentQuestion.selected === currentQuestion.correct) {
         playCorrectQ();
-        localStorage.setItem('currentIndex', quizData.currentQuestionIndex+1);
-        
-         e.target.classList.add('answer-option-correct');
+        e.target.classList.add('answer-option-correct');
         addToCurrentScore(score.total)
         score.total = 3;
         nextQuestion();
@@ -82,7 +81,7 @@ const addAnswerEvents = () => {
   })
 }
 
-let count = 0;
+
 
 //Will call next function on callback
 const delayNext = (callback) => {
@@ -94,15 +93,9 @@ const delayNext = (callback) => {
 }
 
 const nextQuestion = () => {
-  
-  count++;
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
-  if (count <= quizData.questionsToShow) {
+  if (quizData.currentQuestionIndex >= quizData.questionsToShow) {
     delayNext(initLastPage);
-    quizData.currentQuestionIndex = 0, 
-    count = 0;
-    clearIntervals();
-
   } else {
     //Function only comes here when correct answer is selected.
     delayNext(initQuestionPage);

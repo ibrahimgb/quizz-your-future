@@ -1,6 +1,7 @@
 'use strict';
 
 import { navFinalScore } from '../components/navbar.js';
+import { scoreMultiplier } from '../components/scoreKeeper.js';
 import { RETURN_HOME_BUTTON_ID } from '../constants.js';
 import { quizData } from "../data.js";
 
@@ -16,7 +17,7 @@ export const createLastElement = () => {
 export const createScoreElement = () => {
   const element = document.createElement('div');
   element.innerHTML = String.raw`
-    <h4>Your Score is: ${navFinalScore}</h4>
+    <h4>Your Score is: ${scoreMultiplier(navFinalScore)}</h4>
   `;
   return element;
 };
