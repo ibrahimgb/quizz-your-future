@@ -66,7 +66,7 @@ export const createFooter = () => {
   element.innerHTML = String.raw`
     <footer>
       <p>
-      This project was actualized by the 'Quiz Your Future' team 
+      This project was actualized by the 'Quiz Your Future' team<br>
       <a target="_blank" href="https://github.com/cometbroom">Ali</a>, <a target="_blank" href="https://github.com/slymny">Suleyman</a> and <a target="_blank" href="https://github.com/EdwardAbboud">Edward</a>.
       </p>
     </footer>
