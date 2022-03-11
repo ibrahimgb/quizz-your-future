@@ -8,41 +8,55 @@ const scoreDisplay = infoUI.querySelector(`#${HIGH_SCORE_DISPLAY_ID}`);
 export let navFinalScore = 0;
 //Counter that take our timer's setInterval() method.
 let timerCounter;
-
+const navData = {
+	mins: 0,
+	secs: 0,
+	score: 0,
+	qCurrent: 1,
+	qMax: quizData.questionsToShow
+};
+const getTimeFormatted = () => {
+	return (
+		`${navData.mins.toString().padStart(2, '0')}:${navData.secs.toString().padStart(2, '0')}`
+	);
+} 
 /**
  * Initialize the top bar info elements.
  * @returns {void}
  */
+export const starterNavUI = () => {
+	timerDisplay.textContent = "00:00";
+	scoreDisplay.textContent = "";
+	questionDisplay.textContent = "";
+};
+export const lastPageNav = () => {
+	scoreDisplay.textContent = "";
+	questionDisplay.textContent = "";
+	localStorage.setItem("currentIndex", quizData.questionsToShow);
+}
 export const initInfoUI = () => {
 	//Make the initial content with forEach loop
 	//Question upperlimit according to data
-	const initContent = [0, `1/${quizData.questionsToShow}`, '00:00'];
+	const initContent = [
+		navData.score, 
+		`${navData.qCurrent}/${navData.qMax}`, 
+		getTimeFormatted()];
 
 	initContent.forEach((item, idx) => {
 		//Child 0, 1, 2 always have to be the same for this to work
 		infoUI.children[idx].textContent = item;
 	})
 	//Make our second and mins variables
-	let [seconds, mins] = [0, 0];
 
 	//Interval that will count the time and update its display
 	timerCounter = setInterval(() => {
+		localStorage.setItem('currentIndex', navData.qCurrent - 1);
 
 		//Add seconds or minutes according to clock standard
-		seconds < 59 ? seconds++: (mins++, seconds = 0);
-		timerDisplay.textContent = `
-		${mins.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}
-		`;
+		navData.secs < 59 ? navData.secs++: (navData.mins++, navData.secs = 0);
+		localStorage.setItem('navData', JSON.stringify(navData));
+		timerDisplay.textContent = getTimeFormatted();
 	}, 1000);
-}
-
-export const getTimerFromNavbar = () => {
-	const [mins, seconds] = timerDisplay.textContent.split(':').map(x => {
-		return parseInt(x, 10);
-	});
-	return (
-		(mins * 60) + seconds
-	);
 }
 
 /**
@@ -50,15 +64,8 @@ export const getTimerFromNavbar = () => {
  * @returns {void}
  */
 export const nextQuestionRegister = () => {
-	//Get the 2 question numbers x/y from text content and parse them.
-	let qNumbers = questionDisplay.textContent.split('/').map(x => {
-		return parseInt(x, 10);
-	});
-
-	//Add the left side of forward slash
-	qNumbers[0]++;
-	questionDisplay.textContent = `${qNumbers[0]}/${qNumbers[1]}`;
-
+	navData.qCurrent++;
+	questionDisplay.textContent = `${navData.qCurrent}/${navData.qMax}`;
 }
 
 /**
@@ -93,3 +100,16 @@ export const clearIntervals = () => {
 	clearInterval(timerCounter);
 }
 
+
+export const getTimerFromNavbar = () => {
+	return (
+		(navData.mins * 60) + navData.secs
+	);
+}
+
+export const getDataNavbar = () => navData;
+export const setDataNavbar = (data) => {
+	Object.keys(data).forEach(key => {
+		navData[key] = data[key];
+	});
+}

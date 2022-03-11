@@ -4,10 +4,16 @@ import { USER_INTERFACE_ID, RETURN_HOME_BUTTON_ID } from '../constants.js';
 import { createLastElement, createScoreElement, createAccordionToggle, questionAndAnswerList, createFooter } from '../views/lastView.js';
 import { initWelcomePage } from './welcomePage.js';
 import { quizData } from '../data.js';
+import { clearIntervals, initInfoUI, lastPageNav, setDataNavbar } from '../components/navbar.js';
 
 const userInterface = document.getElementById(USER_INTERFACE_ID);
 
 export const initLastPage = () => {
+
+  clearIntervals();
+  quizData.currentQuestionIndex = 0;
+  lastPageNav();
+
   userInterface.innerHTML = '';
 
   const scoreElement = createScoreElement();
@@ -39,9 +45,16 @@ const accordionToggled = (qaList) => {
 }
 
 const restartQuiz = () => {
+  localStorage.clear();
    //Clear selection on reset.
     quizData.questions.map(q => {
       q.selected = null;
     });
+  setDataNavbar({
+    mins: 0,
+    secs: 0,
+    qCurrent: 1,
+    score: 0
+  });
   initWelcomePage();
   };
