@@ -62,7 +62,6 @@ const addAnswerEvents = () => {
       const currentQuestion = quizData.questions[quizData.currentQuestionIndex]; 
       currentQuestion.selected = e.target.innerText[0];
       
-
       if (currentQuestion.selected === currentQuestion.correct) {
          e.target.classList.add('answer-option-correct');
         addToCurrentScore(score.total)
