@@ -84,7 +84,7 @@ const delayNext = (callback) => {
   setTimeout(() => { 
     callback();
     isCorrectAnswerSelected = false;
-  }, 1000);
+  }, 800);
 }
 
 const nextQuestion = () => {
