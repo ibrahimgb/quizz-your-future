@@ -72,6 +72,9 @@ const addAnswerEvents = () => {
        e.target.classList.add('answer-option-wrong');
         score.total -= 1;
       }
+      if (score.total < 1) {
+        score.total = 0;
+      };
     } );
   })
 }
