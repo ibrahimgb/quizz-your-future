@@ -1,3 +1,17 @@
+* {
+  font-family: 'Smooch Sans', sans-serif;
+}
+/* all basic H styles */
+h1 {
+  min-height: 100px;
+}
+
+h4 {
+  font-size: 4rem;
+  margin-bottom: 40px;
+}
+
+/* User Interface */
 .centered {
   display: flex;
   flex-direction: column;
@@ -8,12 +22,22 @@
   margin: auto;
 }
 
+#user-interface {
+  margin-top: 10vh;
+  max-width: 30vw;
+}
+
 .scrollable {
   height: auto;
   max-height: 80vh;
   overflow: auto;
 }
 
+.welcome-message {
+  font-size: 5vw;
+}
+
+/* Nav bar */
 section.navbar {
   background-color: #414141;
   width: 100%;
@@ -38,21 +62,23 @@ nav ul {
 nav ul #info-ui {
   display: flex;
   gap: 20px;
-
 }
 
 ul {
   list-style: none;
+  padding-left: 0;
 }
 
 nav ul li{
   max-height: 40px;
 }
 
+/* Logo */
 #logo img {
   height: 40px;
 }
 
+/* QA list */
 .qalist-wrapper>ul {
   overflow: hidden;
   transition: max-height 0.4s ease;
@@ -78,7 +104,8 @@ nav ul li{
   padding: 1.4rem .5rem .2rem;
   text-align: left;
   height: 3rem;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
+  font-weight: 500;
 }
 
 .answer-options-hovering {
@@ -93,21 +120,35 @@ nav ul li{
 }
 
 .answer-option-wrong {
-  color: #ff0000;
+  color: white;
   background-color: white;
   border: 1px solid white;
   text-decoration: line-through;
+  transition: color 1s;
 }
+
+.answer-option-wrong:hover {
+  color: rgb(255, 0, 0);
+  background-color: white;
+  text-decoration: none;
+}
+
 .q-list-ending {
 padding: 0;
+
 }
 
 .qa-question {
-  color: red;
+  color: #414141;
 }
 
 .qa-answer {
   color: green;
+}
+
+/* button */
+#start-quiz-button {
+  margin-top: 0vh;
 }
 
 .btn-primary {
@@ -126,16 +167,16 @@ padding: 0;
   text-shadow: 0px 0px 3px #ffffff;
 }
 
+/* Last Page */
 footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 99%;
-  margin: 0 auto;
-  height: 60px;
-  background:#414141;
-  color: white;
-  margin: 10px;
+  background:white;
+  color: #414141;
+}
+
+footer p {
+  margin: 0;
+  padding: 10px;
+  font-size: 1.2rem;
 }
 
 footer a {
@@ -145,4 +186,23 @@ footer a {
 footer a:hover,
 footer a:focus {
   font-weight: bold;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1240px) {
+    #user-interface {
+      margin-top: 10vh;
+      max-width: 50vw;
+    }
+  }
+
+@media screen and (max-width: 650px) {
+  #user-interface {
+    margin-top: 10vh;
+    min-width: 80vw;
+  }
+
+  nav ul {
+    width: 96%;
+  }
 }

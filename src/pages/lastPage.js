@@ -23,9 +23,9 @@ export const initLastPage = () => {
   const footer = createFooter();
   
   userInterface.appendChild(scoreElement);
+   userInterface.appendChild(lastElement);
   accordionToggleDiv.appendChild(qaList);
   userInterface.appendChild(accordionToggleDiv);
-  userInterface.appendChild(lastElement);
   userInterface.appendChild(footer);
 
   document

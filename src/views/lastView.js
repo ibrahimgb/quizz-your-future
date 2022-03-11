@@ -9,7 +9,7 @@ import { quizData } from "../data.js";
 export const createLastElement = () => {
   const element = document.createElement('div');
   element.innerHTML = String.raw`
-    <button class="btn-primary" id="${RETURN_HOME_BUTTON_ID}">return</button>
+    <button class="btn-primary" id="${RETURN_HOME_BUTTON_ID}">try again</button>
     `;
   return element;
 };
@@ -17,7 +17,7 @@ export const createLastElement = () => {
 export const createScoreElement = () => {
   const element = document.createElement('div');
   element.innerHTML = String.raw`
-    <h4>Your Score is: ${scoreMultiplier(navFinalScore)}</h4>
+    <h4>Your Final Score is: ${scoreMultiplier(navFinalScore)}</h4>
   `;
   return element;
 };
@@ -66,7 +66,7 @@ export const createFooter = () => {
   element.innerHTML = String.raw`
     <footer>
       <p>
-      This project was actualized by the 'Quiz Your Future' team.<br>
+      This project was actualized by the 'Quiz Your Future' team<br>
       <a target="_blank" href="https://github.com/cometbroom">Ali</a>, <a target="_blank" href="https://github.com/slymny">Suleyman</a> and <a target="_blank" href="https://github.com/EdwardAbboud">Edward</a>.
       </p>
     </footer>

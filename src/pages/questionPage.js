@@ -55,6 +55,8 @@ const showCorrectAnswer = () => {
 }
 
 
+
+  //Go through each answer and add events
 const answerElementHandler = (e) => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
   //If correct answer selected prevent event from firing.
@@ -70,7 +72,9 @@ const answerElementHandler = (e) => {
    e.target.classList.add('answer-option-wrong');
     score.total -= 1;
   }
-
+  if (score.total < 1) {
+        score.total = 0;
+      };
 }
 
 
@@ -81,7 +85,7 @@ const delayNext = (callback) => {
   setTimeout(() => { 
     callback();
     isCorrectAnswerSelected = false;
-  }, 1000);
+  }, 800);
 }
 
 const nextQuestion = () => {
