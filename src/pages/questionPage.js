@@ -61,6 +61,7 @@ const answerElementHandler = (e) => {
   if(isCorrectAnswerSelected) return;
   e.target.classList.remove('answer-options-hovering');
   if (currentQuestion.selected === currentQuestion.correct) {
+    playCorrectQ();
     e.target.classList.add('answer-option-correct');
     addToCurrentScore(score.total)
     score.total = 3;
