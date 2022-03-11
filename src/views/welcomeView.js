@@ -9,7 +9,7 @@ import { START_QUIZ_BUTTON_ID } from '../constants.js';
 export const createWelcomeElement = () => {
   const element = document.createElement('div');
   element.innerHTML = String.raw`
-    <h1>Welcome</h1>
+    <h1 class="welcome-message">Welcome</h1>
     <button class="btn-primary" id="${START_QUIZ_BUTTON_ID}">start quiz</button>
   `;
   return element;
