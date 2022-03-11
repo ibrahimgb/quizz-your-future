@@ -127,7 +127,7 @@ nav ul li{
   transition: color 1s;
 }
 
-.answer-option-wrong:active {
+.answer-option-wrong:hover {
   color: rgb(255, 0, 0);
   background-color: white;
   text-decoration: none;
